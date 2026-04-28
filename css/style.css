@@ -1,0 +1,409 @@
+body {
+  font-family: 'Iosevka Charon', monospace;
+}
+
+.app {
+    display: flex;
+}
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    
+    height: 100vh;
+    width: 80px;
+    border-right: 3px solid black;
+    background: #ffffff;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 0 0 40px;
+}
+
+#user-icon {
+    width: 70px;
+    height: 70px;
+}
+
+#welcome{
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.description {
+    color: #595959;
+    font-size: 14px;
+}
+
+.status {
+    display: flex;
+    gap: 12px;
+    padding: 24px 0 0 40px;
+}
+
+.status-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 2px solid black;
+    border-bottom: 4px solid black;
+    width: 180px;
+    height: 64px;
+    padding: 10px 14px;
+}
+
+.status-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.status-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.status-title {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.task-count {
+    font-size: 14px;
+}
+
+#on-going {
+    background-color: #1F98FB;
+}
+
+#in-process {
+    background-color: #FAE60D;
+}
+
+#completed {
+    background-color: #2CCF62;
+}
+
+#canceled {
+    background-color: #E94123;
+}
+
+.tasks {
+    padding: 24px 0px 0px 40px;
+}
+
+#recent-tasks {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 430px);
+    gap: 12px;
+    padding: 0 40px 40px 0px;
+}
+
+.task-card {
+    position: relative;
+    border: 2px solid black;
+    border-bottom: 4px solid black;
+    background: #ffffff;
+    min-height: 150px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 150px;
+}
+
+.task-details {    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.task-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.task-name {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.task-description-title {
+    font-size: 12px;
+    color: #666;
+}
+
+.task-description {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #555;
+    max-width: 85%;
+}
+
+.task-footer {
+    display: flex;
+    align-items: center;
+    gap: 6px; 
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.task-footer-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.status-pill {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    border: 2px solid black;
+    border-bottom: 4px solid black;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    background: white;
+}
+
+.status-pill.ongoing {
+    background-color: #1F98FB;
+}
+
+.status-pill.in-process {
+    background-color: #FAE60D;
+}
+
+.status-pill.completed {
+    background-color: #2CCF62;
+}
+
+.status-pill.canceled {
+    background-color: #E94123;
+}
+
+.progress-circle {
+    top: 12px;
+    right: 12px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: conic-gradient(#22c55e 0deg 360deg, #d9d9d9 360deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    flex-shrink: 0;
+}
+
+.progress-circle span {
+    width: 28px;
+    height: 28px;
+    background: #f3f3f3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    border: 2px solid black;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard {
+    margin-left: 80px;
+    /* width: calc(100% - 80px); */
+    flex: 1;
+}
+
+.button-bar {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: row;
+}
+
+.task-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 35px;
+    border: 2px solid black;
+    border-bottom: 4px solid black;
+    margin-right: 5px;
+    font-family: inherit;
+    cursor: pointer;
+    background: white;
+}
+
+#add-button, #add-subtask-button, #submit-button {
+    background-color: #22c55e;
+}
+
+#cancel-button, #delete-button, #close-task-view {
+    background-color: #ef4444;
+}
+
+.task-card.selected {
+    outline: 3px solid black;
+    background: #f5f5f5;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border: 2px solid black;
+    border-bottom: 4px solid black;
+    width: 500px;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 2px solid black;
+    border-bottom: 4px solid black;
+    font-family: inherit;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-buttons button {
+    flex: 1;
+}
+
+.task-view-content {
+    width: 600px;
+    max-width: 90%;
+}
+
+.task-view-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.view-task-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.view-task-description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.view-task-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.subtasks-section h3 {
+    margin-bottom: 10px;
+}
+
+.subtasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.subtasks-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    border: 2px solid black;
+    border-bottom: 4px solid black;
+    padding: 10px 12px;
+    background: white;
+}
+
+.subtasks-left {
+    display: flex;
+    gap: 10px;
+}
+
+.subtasks-left span {
+    white-space: nowrap;
+    /* padding-bottom: 10px; */
+    margin-bottom: 10px;
+}
+
+.subtasks-done {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.subtask-input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.subtask-input-row input {
+    flex: 1;
+    border: 2px solid black;
+    border-bottom: 4px solid black;
+    padding: 8px;
+    font-family: inherit;
+}

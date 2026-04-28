@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app">
+        <!--SIDERBAR-->
+        <aside class="sidebar">
+            <a href="index.html" class="nav-item">
+                <img src="./assets/house.svg" class="icon">
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <img src="./assets/tasks.svg" class="icon">
+            </a>
+            <a href="#" class="nav-item">
+                <img src="./assets/calendar.svg" class="icon">
+            </a>
+            <a href="#" class="nav-item">
+                <img src="./assets/user.svg" class="icon">
+            </a>
+        </aside>
+
+        <!--MAIN-->
+        <main class="dashboard">
+            <!--HEADER-->
+            <header class="header">
+                <img src="./assets/user.svg" id="user-icon">
+                <div>
+                    <div id="welcome">Hi, Big Man</div>
+                    <div class="description">Your daily adventures await</div>
+                </div>
+            </header>
+            <!--STATUS CARDS-->
+            <section class="status">
+                <div id="on-going" class="status-card">
+                    <img src="./assets/ongoing.svg" class="status-icon">
+                    <div class="status-text">
+                        <div class="status-title">On going</div>
+                        <div class="task-count">0 Tasks</div>
+                    </div>
+                </div>
+                <div id="in-process" class="status-card">
+                    <img src="./assets/inprocess.svg" class="status-icon">
+                    <div class="status-text">
+                        <div class="status-title">In process</div>
+                        <div class="task-count">0 Tasks</div>
+                    </div>
+                </div>
+                <div id="completed" class="status-card">
+                    <img src="./assets/completed.svg" class="status-icon">
+                    <div class="status-text">
+                        <div class="status-title">Completed</div>
+                        <div class="task-count">0 Tasks</div>
+                    </div>
+                </div>
+                <div id="canceled" class="status-card">
+                    <img src="./assets/canceled.svg" class="status-icon">
+                    <div class="status-text">
+                        <div class="status-title">Canceled</div>
+                        <div class="task-count">0 Tasks</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tasks">
+                <div id="recent-tasks">Recent Tasks</div>
+
+                <div class="button-bar">
+                    <button class="task-button" id="add-button">Add Task</button>
+                    <button class="task-button" id="delete-button">Delete Task</button>
+                </div>
+
+                <div class="tasks-grid"></div>
+            </section>
+
+            <div id="task-modal" class="modal hidden">
+                <div class="modal-content">
+                    <h2>Add New Task</h2>
+
+                    <form id="task-form">
+                        <input type="text" id="task-title" placeholder="Task Title" required>
+                        <input type="text" id="task-subtitle" placeholder="Subtitle" required>
+                        <textarea id="task-description" placeholder="Description"></textarea> 
+                        
+                        <div class="modal-buttons">
+                            <button class="task-button" id="submit-button" type="submit">Add Task</button>
+                            <button class="task-button" id="cancel-button" type="button">Cancel Task</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="task-view-modal" class="modal hidden">
+                <div class="modal-content task-view-content">
+                    <div class="task-view-header">
+                        <h2 id="view-task-title">Task Title</h2>
+                        <button type="button" id="close-task-view" class="task-button">Close</button>
+                    </div>
+    
+                    <p id="view-task-subtitle" class="view-task-subtitle">Task subtitle</p>
+                    <p id="view-task-description" class="view-task-description">Task description</p>
+    
+                    <div class="view-task-meta">
+                        <label for="task-status-select">Status:</label>
+                        <select id="task-status-select">
+                            <option value="ongoing">On Going</option>
+                            <option value="in-process">In Process</option>
+                            <option value="completed">Completed</option>
+                            <option value="canceled">Canceled</option>
+                        </select>
+                        <span id="view-task-progress">Progress: 0%</span>
+                    </div>
+    
+                    <div class="subtasks-section">
+                        <h3>Subtasks</h3>
+    
+                        <div id="subtasks-list" class="subtasks-list"></div>
+    
+                        <div class="subtask-input-row">
+                            <input type="text" id="new-subtask-title" placeholder="New subtask">
+                            <button type="button" id="add-subtask-button" class="task-button">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
